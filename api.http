@@ -5,9 +5,22 @@ POST http://localhost:3000/api/chats
 Content-Type: application/json
 
 {
-  
+  "message": "hello world"
 }
 ###
 GET http://localhost:3000/api/chats
 Content-Type: application/json
 
+
+###
+@chatId = 714d1e51-c6ad-4de1-bc36-cdf86aab75a4
+
+GET http://localhost:3000/api/chats/{{chatId}}/messages
+
+###
+POST  http://localhost:3000/api/chats/{{chatId}}/messages
+Content-Type: application/json
+
+{
+  "message": "Eu estou testando a API"
+}
