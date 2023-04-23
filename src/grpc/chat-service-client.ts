@@ -6,7 +6,11 @@ export class ChatServiceClient {
   private authorization = "123456";
   constructor(private chatClient: GrpcChatServiceClient) {}
 
-  chatStream(data: { chat_id: string | null; user_id: string; message: string }) {
+  chatStream(data: {
+    chat_id: string | null;
+    user_id: string;
+    message: string;
+  }) {
     const metadata = new Metadata();
     metadata.set("authorization", this.authorization);
     const stream = this.chatClient.chatStream(
@@ -17,9 +21,9 @@ export class ChatServiceClient {
       },
       metadata
     );
-    stream.on("data", (data) => {
-      console.log(data);
-    });
+    // stream.on("data", (data) => {
+    //   console.log(data);
+    // });
     // stream.on("error", (err) => {
     //   console.log(err);
     // });
